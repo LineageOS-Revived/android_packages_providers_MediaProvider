@@ -2120,6 +2120,7 @@ public class MediaProvider extends ContentProvider {
             } catch (FileNotFoundException e) {
                 throw new IllegalArgumentException(e);
             }
+            assertFileColumnsSane(match, uri, values);
             res = Environment.buildPath(res, relativePath);
             try {
                 if (makeUnique) {
