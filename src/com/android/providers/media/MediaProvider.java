@@ -4713,6 +4713,8 @@ public class MediaProvider extends ContentProvider {
                 case VIDEO_MEDIA_ID:
                 case IMAGES_MEDIA_ID:
                 case DOWNLOADS_ID:
+                    // Check if the caller has the required permissions to do placement
+                    enforceCallingPermission(uri, true);
                     break;
                 default:
                     throw new IllegalArgumentException("Movement of " + uri
